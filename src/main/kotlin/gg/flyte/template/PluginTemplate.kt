@@ -1,19 +1,22 @@
 package gg.flyte.template
 
+import com.github.shynixn.mccoroutine.bukkit.SuspendingJavaPlugin
+import com.github.shynixn.mccoroutine.bukkit.registerSuspendingEvents
 import gg.flyte.template.command.PingCommand
 import gg.flyte.template.listener.JoinListener
+import gg.flyte.template.listener.SuspendingJoinListener
 import gg.flyte.twilight.twilight
 import io.papermc.lib.PaperLib
-import org.bukkit.plugin.java.JavaPlugin
+import org.bukkit.Bukkit
 import revxrsal.commands.bukkit.BukkitCommandHandler
 
-class PluginTemplate : JavaPlugin() {
+class PluginTemplate : SuspendingJavaPlugin() {
 
     companion object {
         lateinit var instance: PluginTemplate
     }
 
-    override fun onEnable() {
+    override suspend fun onEnableAsync() {
         instance = this
         twilight(this) { }
 
@@ -23,8 +26,14 @@ class PluginTemplate : JavaPlugin() {
             registerBrigadier()
         }
 
+        server.pluginManager.registerSuspendingEvents(SuspendingJoinListener(), this)
+
         JoinListener()
 
         PaperLib.suggestPaper(this)
+    }
+
+    override suspend fun onDisableAsync() {
+
     }
 }

@@ -13,6 +13,9 @@ lamp = "3.1.7"
 adventure = "4.14.0"
 adventure-platform-bukkit = "4.3.2"
 
+coroutines = "1.8.0-RC2"
+mccoroutine = "2.14.0"
+
 [libraries]
 twilight = { module = "gg.flyte:twilight", version.ref = "twilight" }
 paperlib = { module = "io.papermc:paperlib", version.ref = "paperlib" }
@@ -25,6 +28,10 @@ lamp-brigadier = { module = "com.github.Revxrsal.Lamp:brigadier", version.ref = 
 adventure = { module = "net.kyori:adventure", version.ref = "adventure" }
 adventure-text-minimessage = { module = "net.kyori:adventure-text-minimessage", version.ref = "adventure" }
 adventure-platform-bukkit = { module = "net.kyori:adventure-platform-bukkit", version.ref = "adventure-platform-bukkit" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+mccoroutine-api = { module = "com.github.shynixn.mccoroutine:mccoroutine-bukkit-api", version.ref = "mccoroutine" }
+mccoroutine-core = { module = "com.github.shynixn.mccoroutine:mccoroutine-bukkit-core", version.ref = "mccoroutine" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
